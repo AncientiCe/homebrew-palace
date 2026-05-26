@@ -23,8 +23,9 @@ class Palace < Formula
   end
 
   def install
-    prefix_dir = Dir["palace-*"].first
-    bin.install "#{prefix_dir}/palace"
+    cd Dir["palace-*"].first do
+      bin.install "palace"
+    end
   end
 
   def caveats
