@@ -23,8 +23,15 @@ class Palace < Formula
   end
 
   def install
-    cd Dir["palace-*"].first do
+    # Homebrew auto-extracts and may strip single top-level directory
+    # Try direct install first
+    if File.exist?("palace")
       bin.install "palace"
+    else
+      # Otherwise navigate into extracted directory
+      cd Dir["palace-*"].first do
+        bin.install "palace"
+      end
     end
   end
 
