@@ -23,13 +23,8 @@ class Palace < Formula
   end
 
   def install
-    # Extract binary from nested directory structure
-    # Archives contain: palace-0.4.0-{target}/palace
-    bin.install Dir["palace-*/palace"].first => "palace"
-
-    # Install documentation
-    doc.install Dir["palace-*/README.md"].first if Dir["palace-*/README.md"].any?
-    doc.install Dir["palace-*/CHANGELOG.md"].first if Dir["palace-*/CHANGELOG.md"].any?
+    prefix_dir = Dir["palace-*"].first
+    bin.install "#{prefix_dir}/palace"
   end
 
   def caveats
