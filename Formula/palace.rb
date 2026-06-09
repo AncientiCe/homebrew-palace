@@ -1,13 +1,13 @@
 class Palace < Formula
   desc "Local-first memory retrieval engine for coding agents with MCP integration"
   homepage "https://github.com/AncientiCe/palace-rs"
-  version "0.5.0"
+  version "0.6.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/AncientiCe/palace-rs/releases/download/v0.5.0/palace-0.5.0-aarch64-apple-darwin.tar.gz"
-      sha256 "9d983ac3cdcdae08fe0a576e89294233d215f6ec3fd6fe3876e6ba6a640b0fe8"
+      url "https://github.com/AncientiCe/palace-rs/releases/download/v0.6.0/palace-0.6.0-aarch64-apple-darwin.tar.gz"
+      sha256 "d59c2bad4a34ed6ce5b13280d640dbfe64b02bfd2b8407e19eb4435a2dbd23b3"
     end
 
     on_intel do
@@ -17,8 +17,8 @@ class Palace < Formula
 
   on_linux do
     on_intel do
-      url "https://github.com/AncientiCe/palace-rs/releases/download/v0.5.0/palace-0.5.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "98f8d71a2eaed80f3dc73be712deea5e3166eab2244feb3f20dc9da380ffb242"
+      url "https://github.com/AncientiCe/palace-rs/releases/download/v0.6.0/palace-0.6.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "c4776a895179ff6b7b87e9ecc9d270f0a8059d368ee3e8a5dc6d840bf2df2a6b"
     end
   end
 
