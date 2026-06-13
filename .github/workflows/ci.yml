@@ -25,6 +25,7 @@ jobs:
       - name: Register tap
         run: |
           tap_dir="$(brew --repository)/Library/Taps/ancientice/homebrew-palace"
+          rm -rf "$tap_dir"
           mkdir -p "$(dirname "$tap_dir")"
           cp -R tap "$tap_dir"
 
