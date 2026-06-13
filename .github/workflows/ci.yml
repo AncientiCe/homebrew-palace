@@ -33,7 +33,12 @@ jobs:
       - name: brew audit
         run: brew audit --online --formula ancientice/palace/palace
 
+      # GitHub's ubuntu-latest restricts unprivileged user namespaces (AppArmor),
+      # so Homebrew's bubblewrap sandbox cannot start. Disable it on Linux; the
+      # variable is ignored on macOS.
       - name: Install and test formula
+        env:
+          HOMEBREW_NO_SANDBOX_LINUX: "1"
         run: |
           brew install ancientice/palace/palace
           brew test ancientice/palace/palace
