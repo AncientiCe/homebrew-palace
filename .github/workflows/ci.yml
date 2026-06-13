@@ -1,0 +1,40 @@
+name: Tap CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  audit:
+    name: Audit formula (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Checkout tap into Homebrew
+        uses: actions/checkout@v4
+        with:
+          path: tap
+
+      - name: Register tap
+        run: |
+          tap_dir="$(brew --repository)/Library/Taps/ancientice/homebrew-palace"
+          mkdir -p "$(dirname "$tap_dir")"
+          cp -R tap "$tap_dir"
+
+      - name: brew style
+        run: brew style ancientice/palace
+
+      - name: brew audit
+        run: brew audit --online --formula ancientice/palace/palace
+
+      - name: Install and test formula
+        run: |
+          brew install ancientice/palace/palace
+          brew test ancientice/palace/palace
