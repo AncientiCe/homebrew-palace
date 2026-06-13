@@ -1,7 +1,6 @@
 class Palace < Formula
   desc "Local-first memory retrieval engine for coding agents with MCP integration"
   homepage "https://github.com/AncientiCe/palace-rs"
-  version "0.6.1"
   license "MIT"
 
   on_macos do
@@ -23,12 +22,10 @@ class Palace < Formula
   end
 
   def install
-    # Homebrew auto-extracts and may strip single top-level directory
-    # Try direct install first
+    # Homebrew auto-extracts and may strip single top-level directory.
     if File.exist?("palace")
       bin.install "palace"
     else
-      # Otherwise navigate into extracted directory
       cd Dir["palace-*"].first do
         bin.install "palace"
       end

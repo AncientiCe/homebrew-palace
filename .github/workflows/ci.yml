@@ -14,20 +14,18 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest]
     steps:
-      - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+      - uses: actions/checkout@v4
+      - uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Checkout tap into Homebrew
-        uses: actions/checkout@v4
-        with:
-          path: tap
-
-      - name: Register tap
+      # Register the checkout as a tap via symlink so `brew` can address the
+      # formula by name (path-based `brew audit/install` is disabled). A symlink
+      # (not a copy) keeps setup-homebrew's post-cleanup happy.
+      - name: Link tap into Homebrew
         run: |
           tap_dir="$(brew --repository)/Library/Taps/ancientice/homebrew-palace"
           rm -rf "$tap_dir"
           mkdir -p "$(dirname "$tap_dir")"
-          cp -R tap "$tap_dir"
+          ln -s "$GITHUB_WORKSPACE" "$tap_dir"
 
       - name: brew style
         run: brew style ancientice/palace
