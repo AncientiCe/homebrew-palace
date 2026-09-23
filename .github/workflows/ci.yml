@@ -15,7 +15,7 @@ jobs:
         os: [macos-latest, ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
-      - uses: Homebrew/actions/setup-homebrew@master
+      - uses: Homebrew/actions/setup-homebrew@main
 
       # Register the checkout as a tap via symlink so `brew` can address the
       # formula by name (path-based `brew audit/install` is disabled). A symlink
