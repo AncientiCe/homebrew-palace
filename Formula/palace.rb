@@ -5,8 +5,8 @@ class Palace < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/AncientiCe/palace-rs/releases/download/v0.17.0/palace-0.17.0-aarch64-apple-darwin.tar.gz"
-      sha256 "505d7a4421b6477298deb1bcd6005e7e25c3f70a997431431aeae80df2013fd2"
+      url "https://github.com/AncientiCe/palace-rs/releases/download/v0.17.1/palace-0.17.1-aarch64-apple-darwin.tar.gz"
+      sha256 "af2026244344c03a939fef78f451d40f20d85416b6ae9a0288a876749cacd2b8"
     end
 
     on_intel do
@@ -16,8 +16,8 @@ class Palace < Formula
 
   on_linux do
     on_intel do
-      url "https://github.com/AncientiCe/palace-rs/releases/download/v0.17.0/palace-0.17.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "e276c5b9e14c3b0bd543d81233ad41e94e7d713ed8d42a38b76838494e142ef2"
+      url "https://github.com/AncientiCe/palace-rs/releases/download/v0.17.1/palace-0.17.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "9dfafb1f2a4217ea388bb6c0396d6eb8c5cb44f262a6bf5d4e8d68177d6f546c"
     end
   end
 
